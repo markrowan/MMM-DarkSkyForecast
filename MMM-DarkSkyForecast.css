@@ -3,7 +3,7 @@
 }
 
 .MMM-DarkSkyForecast .module-content {
-  width: 300px;
+  width: 400px;
 }
 
 .MMM-DarkSkyForecast .forecast-container .forecast-item .temperature,
@@ -232,7 +232,7 @@
   text-align: left;
 }
 .MMM-DarkSkyForecast .wrapper.table .forecast-container .forecast-item > span:last-child {
-  text-align: right;
+  text-align: center;
 }
 
 .MMM-DarkSkyForecast .wrapper.table .forecast-container .forecast-item .forecast-icon {

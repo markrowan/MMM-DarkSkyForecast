@@ -79,12 +79,12 @@ Module.register("MMM-DarkSkyForecast", {
     forecastTiledIconSize: 70,
     forecastTableIconSize: 30,
     updateFadeSpeed: 500,
-    label_maximum: "max",
-    label_high: "H",
-    label_low: "L",
+    label_maximum: "",
+    label_high: "",
+    label_low: "",
     label_timeFormat: "h a",
-    label_days: ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"],
-    label_ordinals: ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"],
+    label_days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    label_ordinals: ["↓", "↙", "↙", "←", "←", "↖", "↖", "↑", "↑", "↗", "↗", "→", "→", "↘", "↘", "↓"],
     moduleTimestampIdPrefix: "DARK_SKY_TIMESTAMP_"
   },
 
@@ -422,12 +422,12 @@ Module.register("MMM-DarkSkyForecast", {
     //wind gust
     var windGust = null;
     if (!this.config.concise && gust) {
-      windGust = " (" + this.config.label_maximum + " " + Math.round(gust) + " " + this.getUnit("windSpeed") + ")";
-    }    
+      windGust = " (" + this.config.label_maximum + "" + Math.round(gust) + ")";
+    }
 
     return {
-      windSpeed: Math.round(speed) + " " + this.getUnit("windSpeed") + (!this.config.concise ? " " + this.getOrdinal(bearing) : ""),
-      windGust: windGust
+      windSpeed: (!this.config.concise ? " " + this.getOrdinal(bearing) + " " : "") + Math.round(speed) + windGust + " " + this.getUnit("windSpeed"),
+      windGust: ""
     };
   },
 
